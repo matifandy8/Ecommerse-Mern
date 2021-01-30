@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import Backdrop from "./components/Backdrop";
 import SideDrawer from "./components/SideDrawer";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 function App() {
   const [sideToggle, setSideToggle] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
       </main>
+      <Footer />
     </Router>
   );
 }
