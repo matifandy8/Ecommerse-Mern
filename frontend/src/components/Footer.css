@@ -3,6 +3,29 @@
   left: 0px;
   bottom: 0px;
   width: 100%;
-  height: 200px;
+  height: 120px;
   color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer__column {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.footer__column h4 {
+  font-size: 20px;
+}
+
+.footer__column ul {
+  list-style: none;
+}
+
+.footer__column ul li {
+  list-style: none;
+  font-weight: 200;
+  font-size: 14px;
+  padding: 6px;
 }

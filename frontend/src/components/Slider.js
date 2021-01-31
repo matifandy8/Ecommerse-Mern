@@ -27,7 +27,7 @@ export default class Slider extends Component {
   }
   responsive = {
     0: { items: 1 },
-    1024: { items: 2 },
+    1024: { items: 1 },
   };
   componentDidMount() {
     this.getData();
@@ -39,12 +39,13 @@ export default class Slider extends Component {
         <AliceCarousel
           items={this.state.galleryItems}
           responsive={this.responsive}
-          autoPlayInterval={1000}
+          autoPlayInterval={3000}
           autoPlayDirection="left"
           autoPlay={true}
           fadeOutAnimation={true}
           mouseTrackingEnabled={true}
           disableAutoPlayOnAction={true}
+          infinite={true}
         />
       </div>
     );
