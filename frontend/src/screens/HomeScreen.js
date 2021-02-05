@@ -9,7 +9,6 @@ import Product from "../components/Product";
 //Actions
 import { getProducts as listProducts } from "../redux/actions/productActions";
 import Loading from "../components/Loading";
-import Slider from "../components/Slider";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -23,7 +22,6 @@ const HomeScreen = () => {
 
   return (
     <div className="homescreen">
-      <Slider />
       <h2 className="homescreen__title">Latest Products</h2>
 
       <div className="homescreen__products">

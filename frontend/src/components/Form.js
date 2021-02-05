@@ -51,18 +51,20 @@ function Form() {
   };
 
   return (
-    <div className="forms">
-      <form onSubmit={createUser}>
-        <input type="text" placeholder="Username..." />
-        <input type="text" placeholder="Password" />
-        <input type="submit" className="button" />
-      </form>
+    <div className="form">
+      <div className="forms">
+        <form onSubmit={createUser}>
+          <input type="text" placeholder="Username..." />
+          <input type="text" placeholder="Password" />
+          <input type="submit" className="button" value="Register" />
+        </form>
 
-      <form onSubmit={enterUser}>
-        <input type="text" placeholder="Username" />
-        <input type="text" placeholder="Password" />
-        <input type="submit" className="button" />
-      </form>
+        <form onSubmit={enterUser}>
+          <input type="text" placeholder="Username" />
+          <input type="text" placeholder="Password" />
+          <input type="submit" className="button" value="Sign in" />
+        </form>
+      </div>
     </div>
   );
 }

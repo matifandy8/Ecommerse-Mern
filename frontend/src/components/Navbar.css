@@ -1,17 +1,19 @@
 .navbar {
   width: 100%;
-  height: 110px;
+  height: 90px;
   background-color: #171717;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1rem;
   z-index: 50;
+  font-family: Gotham Narrow SSm A, Gotham Narrow SSm B, Rubik, Lato,
+    Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
 }
 
 .navbar__logo h2 {
   color: #f4f4f4;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 .navbar__links {
@@ -20,12 +22,12 @@
   align-items: center;
 }
 .navbar__links > li {
-  padding-left: 1.5rem;
+  padding-left: 2.5rem;
 }
 .navbar__links > li > a {
   text-decoration: none;
   color: #f4f4f4;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
 }
@@ -40,7 +42,7 @@
   border-radius: 8px;
 }
 .cart__link:hover {
-  background-color: #dd219e;
+  background-color: #3f3303;
   color: #f4f4f4;
 }
 .cartlogo__badge {
@@ -71,7 +73,7 @@
   background-color: #f4f4f4;
 }
 .hamburger__menu:hover > div {
-  background-color: #dd219e;
+  background-color: #3f3303;
 }
 
 @media (max-width: 960px) {
