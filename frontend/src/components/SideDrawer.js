@@ -32,6 +32,9 @@ const SideDrawer = ({ show, click }) => {
           <Link to="/">Shop</Link>
         </li>
         <li>
+          <Link to="/sell">Sell</Link>
+        </li>
+        <li>
           <Link to="/login">Login</Link>
         </li>
       </ul>
