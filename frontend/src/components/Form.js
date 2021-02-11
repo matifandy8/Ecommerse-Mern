@@ -44,6 +44,7 @@ function Form() {
         withCredentials: true,
         url: "http://localhost:5000/login",
       }).then((res) => alert(res.data));
+      window.location = "/";
     } else {
       alert("Debes llenar los campos");
       alert(isValid);

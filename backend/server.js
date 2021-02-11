@@ -10,6 +10,8 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const Product = require("./models/product");
+const router = express.Router();
 
 connectDB();
 
@@ -75,6 +77,30 @@ app.post("/register", (req, res) => {
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
+
+const createProduct = async (req, res) => {
+  const { name, imageUrl, description, price, countInStock } = req.body;
+
+  const newProduct = new Product({
+    name,
+    imageUrl,
+    description,
+    price,
+    countInStock,
+  });
+
+  try {
+    await newProduct.save();
+
+    res.status(201).json(newProduct);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+};
+
+router.post("/", createProduct);
+
+app.use("/products", router.post("/", createProduct));
 
 const PORT = process.env.PORT || 5000;
 

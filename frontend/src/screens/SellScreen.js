@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Axios from "axios";
 
 import "./SellScreen.css";
 
@@ -14,7 +15,18 @@ const errorMessage = (error) => {
 
 export default function SellScreen() {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>
+    Axios({
+      method: "POST",
+      data: {
+        name: data.name,
+        imageUrl: data.imageUrl,
+        description: data.description,
+        price: data.price,
+        countInStock: data.countInStock,
+      },
+      url: "http://localhost:5000/products",
+    }).then((res) => alert(res.data));
 
   return (
     <div className="container">
