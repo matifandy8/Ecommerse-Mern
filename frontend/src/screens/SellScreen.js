@@ -31,9 +31,6 @@ export default function SellScreen() {
   return (
     <div className="container">
       <div className="col-sm-12">
-        <h3>Client Profile</h3>
-      </div>
-      <div className="col-sm-12">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <input
@@ -92,7 +89,7 @@ export default function SellScreen() {
           </div>
 
           <div className="form-group">
-            <input className="btn btn-primary" type="submit" />
+            <input className="btn" type="submit" />
           </div>
         </form>
       </div>
