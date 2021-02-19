@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Form.css";
 import { userSchema } from "./UserValidation";
 import Axios from "axios";
+import swal from "sweetalert";
 
 function Form() {
   const createUser = async (event) => {
@@ -23,6 +24,9 @@ function Form() {
         withCredentials: true,
         url: "http://localhost:5000/register",
       }).then((res) => console.log(res));
+    } else {
+      swal("Atención", "Debes de llenar los campos", "error");
+      alert(isValid);
     }
   };
   const enterUser = async (event) => {
@@ -44,9 +48,8 @@ function Form() {
         withCredentials: true,
         url: "http://localhost:5000/login",
       }).then((res) => alert(res.data));
-      window.location = "/";
     } else {
-      alert("Debes llenar los campos");
+      swal("Atención", "Debes de llenar los campos", "error");
       alert(isValid);
     }
   };

@@ -3,10 +3,21 @@
   margin: 1rem auto;
 }
 .homescreen__title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: #171717;
   margin-bottom: 1rem;
   margin-left: 8px;
+  text-align: center;
+}
+.homescreen__input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d6d8e6;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.2s ease-out;
+  margin-left: 40%;
+  margin-bottom: 20px;
 }
 
 .homescreen__products {

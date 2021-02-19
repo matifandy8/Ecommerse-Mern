@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomeScreen.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Components
@@ -11,6 +11,7 @@ import { getProducts as listProducts } from "../redux/actions/productActions";
 import Loading from "../components/Loading";
 
 const HomeScreen = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   const getProducts = useSelector((state) => state.getProducts);
@@ -22,8 +23,15 @@ const HomeScreen = () => {
 
   return (
     <div className="homescreen">
-      <h2 className="homescreen__title">Latest Products</h2>
-
+      <h2 className="homescreen__title">Products</h2>
+      <input
+        className="homescreen__input"
+        type="text"
+        placeholder="Search..."
+        onChange={(event) => {
+          setSearchTerm(event.target.value);
+        }}
+      />
       <div className="homescreen__products">
         {loading ? (
           <h2>
@@ -33,16 +41,26 @@ const HomeScreen = () => {
         ) : error ? (
           <h2>{error}</h2>
         ) : (
-          products.map((product) => (
-            <Product
-              key={product._id}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              imageUrl={product.imageUrl}
-              productId={product._id}
-            />
-          ))
+          products
+            .filter((product) => {
+              if (searchTerm == "") {
+                return product;
+              } else if (
+                product.name.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return product;
+              }
+            })
+            .map((product) => (
+              <Product
+                key={product._id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                imageUrl={product.imageUrl}
+                productId={product._id}
+              />
+            ))
         )}
       </div>
     </div>
