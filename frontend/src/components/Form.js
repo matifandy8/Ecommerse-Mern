@@ -1,10 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+
 import "./Form.css";
 import { userSchema } from "./UserValidation";
 import Axios from "axios";
 import swal from "sweetalert";
 
 function Form() {
+  const history = useHistory();
+
   const createUser = async (event) => {
     event.preventDefault();
     let formData = {
@@ -23,7 +27,13 @@ function Form() {
         },
         withCredentials: true,
         url: "http://localhost:5000/register",
-      }).then((res) => console.log(res));
+      }).then((res) => {
+        if (res.data == "User Already Exists") {
+          return swal("Atención", "User Already Exists", "error");
+        }
+      });
+
+      // console.log(res));
     } else {
       swal("Atención", "Debes de llenar los campos", "error");
       alert(isValid);
@@ -47,7 +57,14 @@ function Form() {
         },
         withCredentials: true,
         url: "http://localhost:5000/login",
-      }).then((res) => alert(res.data));
+      }).then((res) => {
+        if (res.data == "Successfully Authenticated") {
+          // redirect
+          history.push("/");
+        } else {
+          return swal("Atención", "User Not Exists", "error");
+        }
+      });
     } else {
       swal("Atención", "Debes de llenar los campos", "error");
       alert(isValid);
