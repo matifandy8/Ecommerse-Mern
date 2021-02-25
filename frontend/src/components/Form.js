@@ -1,12 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
+import GoogleLogin from "react-google-login";
 import "./Form.css";
 import { userSchema } from "./UserValidation";
 import Axios from "axios";
 import swal from "sweetalert";
 
 function Form() {
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
   const history = useHistory();
 
   const createUser = async (event) => {
@@ -85,6 +88,13 @@ function Form() {
           <input type="text" placeholder="Password" />
           <input type="submit" className="button" value="Sign in" />
         </form>
+        <GoogleLogin
+          clientId="744012602399-qn4le4lerfa860ggif96vmct9ktja2ap.apps.googleusercontent.com"
+          buttonText="Sign in With Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
       </div>
     </div>
   );
