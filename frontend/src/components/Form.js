@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login";
 import "./Form.css";
 import { userSchema } from "./UserValidation";
 import Axios from "axios";
@@ -8,6 +9,9 @@ import swal from "sweetalert";
 
 function Form() {
   const responseGoogle = (response) => {
+    console.log(response);
+  };
+  const responseFacebook = (response) => {
     console.log(response);
   };
   const history = useHistory();
@@ -77,6 +81,7 @@ function Form() {
   return (
     <div className="form">
       <div className="forms">
+        <h1>Login</h1>
         <form onSubmit={createUser}>
           <input type="text" placeholder="Username..." />
           <input type="text" placeholder="Password" />
@@ -88,13 +93,22 @@ function Form() {
           <input type="text" placeholder="Password" />
           <input type="submit" className="button" value="Sign in" />
         </form>
-        <GoogleLogin
-          clientId="744012602399-qn4le4lerfa860ggif96vmct9ktja2ap.apps.googleusercontent.com"
-          buttonText="Sign in With Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={"single_host_origin"}
-        />
+        <div className="social">
+          <GoogleLogin
+            clientId="744012602399-qn4le4lerfa860ggif96vmct9ktja2ap.apps.googleusercontent.com"
+            buttonText="Sign in With Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+          <FacebookLogin
+            appId="426805741737613"
+            autoLoad={true}
+            fields="name,email,picture"
+            // onClick={componentClicked}
+            callback={responseFacebook}
+          />
+        </div>
       </div>
     </div>
   );

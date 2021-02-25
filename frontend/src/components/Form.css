@@ -3,7 +3,9 @@
   align-items: center;
   justify-content: center;
 }
-
+h1 {
+  text-align: center;
+}
 div .forms {
   font-family: Gotham Narrow SSm A, Gotham Narrow SSm B, Rubik, Lato,
     Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
@@ -58,4 +60,9 @@ form input::placeholder {
   font-family: "Open Sans", sans-serif;
   margin-top: 15px;
   transition: background 0.2s ease-out;
+}
+
+.social {
+  display: flex;
+  justify-content: space-around;
 }
