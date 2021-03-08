@@ -6,6 +6,10 @@ const Navbar = ({ click }) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
@@ -32,7 +36,11 @@ const Navbar = ({ click }) => {
           <Link to="/sell">Sell</Link>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          {localStorage.getItem("user") ? (
+            <Link onClick={handleLogout}>Logout</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </li>
       </ul>
 

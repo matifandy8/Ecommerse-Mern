@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
@@ -15,7 +15,6 @@ function Form() {
     console.log(response);
   };
   const history = useHistory();
-
   const createUser = async (event) => {
     event.preventDefault();
     let formData = {
@@ -67,6 +66,10 @@ function Form() {
       }).then((res) => {
         if (res.data == "Successfully Authenticated") {
           // redirect
+          console.log(formData);
+
+          // store the user in localStorage
+          localStorage.setItem("user", JSON.stringify("user exist"));
           history.push("/");
         } else {
           return swal("Atención", "User Not Exists", "error");
@@ -84,13 +87,13 @@ function Form() {
         <h1>Login</h1>
         <form onSubmit={createUser}>
           <input type="text" placeholder="Username..." />
-          <input type="text" placeholder="Password" />
+          <input type="password" placeholder="Password" />
           <input type="submit" className="button" value="Register" />
         </form>
 
         <form onSubmit={enterUser}>
           <input type="text" placeholder="Username" />
-          <input type="text" placeholder="Password" />
+          <input type="password" placeholder="Password" />
           <input type="submit" className="button" value="Sign in" />
         </form>
         <div className="social">
