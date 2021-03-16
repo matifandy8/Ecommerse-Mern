@@ -34,7 +34,7 @@ function Form() {
         withCredentials: true,
         url: "http://localhost:5000/register",
       }).then((res) => {
-        if (res.data == "User Already Exists") {
+        if (res.data === "User Already Exists") {
           return swal("Atención", "User Already Exists", "error");
         }
       });
@@ -42,7 +42,6 @@ function Form() {
       // console.log(res));
     } else {
       swal("Atención", "Debes de llenar los campos", "error");
-      alert(isValid);
     }
   };
   const enterUser = async (event) => {
@@ -64,7 +63,7 @@ function Form() {
         withCredentials: true,
         url: "http://localhost:5000/login",
       }).then((res) => {
-        if (res.data == "Successfully Authenticated") {
+        if (res.data === "Successfully Authenticated") {
           // redirect
           console.log(formData);
 
@@ -77,7 +76,6 @@ function Form() {
       });
     } else {
       swal("Atención", "Debes de llenar los campos", "error");
-      alert(isValid);
     }
   };
 

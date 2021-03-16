@@ -31,6 +31,7 @@ export default function SellScreen() {
   return (
     <div className="container">
       <div className="col-sm-12">
+        <h1>Sell</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <input
@@ -57,8 +58,9 @@ export default function SellScreen() {
             />
           </div>
           <div className="form-group">
-            <textarea
+            <input
               className="form-control"
+              placeholder="Description"
               name="description"
               ref={register}
             />
