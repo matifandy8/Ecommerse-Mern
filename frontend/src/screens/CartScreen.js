@@ -1,7 +1,8 @@
 import "./CartScreen.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import PayPal from "../PayPal";
 
 // Components
 import CartItem from "../components/CartItem";
@@ -11,7 +12,7 @@ import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
 const CartScreen = () => {
   const dispatch = useDispatch();
-
+  const [checkout, setCheckOut] = useState(false);
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -63,7 +64,17 @@ const CartScreen = () => {
             <p>${getCartSubTotal()}</p>
           </div>
           <div>
-            <button>Proceed To Checkout</button>
+            {checkout ? (
+              <PayPal />
+            ) : (
+              <button
+                onClick={() => {
+                  setCheckOut(true);
+                }}
+              >
+                Buy with Paypal
+              </button>
+            )}
           </div>
         </div>
       </div>

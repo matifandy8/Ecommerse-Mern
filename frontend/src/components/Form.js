@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
@@ -24,7 +24,7 @@ function Form() {
     const isValid = await userSchema.isValid(formData);
     console.log(formData);
     console.log(isValid);
-    if (isValid == true) {
+    if (isValid === true) {
       Axios({
         method: "POST",
         data: {
@@ -53,7 +53,7 @@ function Form() {
     const isValid = await userSchema.isValid(formData);
     console.log(formData);
     console.log(isValid);
-    if (isValid == true) {
+    if (isValid === true) {
       Axios({
         method: "POST",
         data: {

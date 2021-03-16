@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
-
 import "./SellScreen.css";
 
 // Messages
@@ -91,7 +90,7 @@ export default function SellScreen() {
           </div>
 
           <div className="form-group">
-            <input className="btn" type="submit" />
+            <input className="btn" type="submit" value="Sell" />
           </div>
         </form>
       </div>
