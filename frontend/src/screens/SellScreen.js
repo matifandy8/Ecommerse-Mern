@@ -24,7 +24,7 @@ export default function SellScreen() {
         price: data.price,
         countInStock: data.countInStock,
       },
-      url: "http://localhost:5000/products",
+      url: "https://api-ecommerse.herokuapp.com/products",
     }).then((res) => alert(res.data));
 
   return (
