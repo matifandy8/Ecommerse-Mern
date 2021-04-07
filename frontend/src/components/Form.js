@@ -32,7 +32,7 @@ function Form() {
           password: formData.password,
         },
         withCredentials: true,
-        url: "http://localhost:5000/register",
+        url: "https://api-ecommerse.herokuapp.com/register",
       }).then((res) => {
         if (res.data === "User Already Exists") {
           return swal("Atención", "User Already Exists", "error");
@@ -61,7 +61,7 @@ function Form() {
           password: event.target[1].value,
         },
         withCredentials: true,
-        url: "http://localhost:5000/login",
+        url: "https://api-ecommerse.herokuapp.com/login",
       }).then((res) => {
         if (res.data === "Successfully Authenticated") {
           // redirect
