@@ -5,9 +5,7 @@ export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(
-      "https://api-ecommerse.herokuapp.com/api/products"
-    );
+    const { data } = await axios.get("http://localhost:5000/api/products");
 
     dispatch({
       type: actionTypes.GET_PRODUCTS_SUCCESS,
@@ -29,7 +27,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `https://api-ecommerse.herokuapp.com/api/products/${id}`
+      `http://localhost:5000/api/products/${id}`
     );
 
     dispatch({
